@@ -13,15 +13,3 @@ resource "aws_spot_instance_request" "sopt_instance" {
 }
 
 
-resource "aws_ec2_tag" "aws_ec2_tag" {
-  count = length(local.ALL_TAGS_IDS)
-  resource_id = local.ALL_TAGS_IDS[count.index]
-  key         = "Name"
-  value       = local.TAG_NAME
-}
-
-#resource "aws_ec2_tag" "aws_monitor_tag" {
-#  resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
-#  key         = "MONITOR"
-#  value       = var.COMPONENT["monitor"]
-#}
