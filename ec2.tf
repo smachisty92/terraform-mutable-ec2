@@ -9,7 +9,9 @@ resource "aws_spot_instance_request" "sopt_instance" {
   ami                    = data.aws_ami.ami.id
   instance_type          = var.SPOT_INSTANCE_TYPE
   wait_for_fulfillment   = true
-
+#  root_block_device { this is to update the volumn size
+#    volume_size = 10
+#  }
 }
 
 
