@@ -1,6 +1,7 @@
 
 
 module "tags" {
+  depends_on = [aws_instance.od-instance, aws_spot_instance_request.sopt_instance]
   count = length(local.ALL_TAGS)
   source = "git::https://github.com/smachisty92/terraform-tags"
   TAG_NAME = lookup(element(local.ALL_TAGS,count.index), "name")
