@@ -11,15 +11,6 @@ resource "aws_security_group" "allow" {
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.VPC_CIDR, data.terraform_remote_state.vpc.outputs.DEFAULT_VPC_CIDR]
   }
 
-  ingress {
-    description      = "Cart App Port"
-    from_port        = var.COMPONENT["port"]
-    to_port          = var.COMPONENT["port"]
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-
   egress {
     from_port        = 0
     to_port          = 0
