@@ -16,8 +16,5 @@ resource "aws_spot_instance_request" "sopt_instance" {
 #  }
 }
 
-output "SUBNETS_ID" {
-  value = data.terraform_remote_state.vpc.outputs.SUBNETS_ID
-}
 
 
