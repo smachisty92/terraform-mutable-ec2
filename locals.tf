@@ -16,7 +16,3 @@ output "EBS" {
 output "ALL_TAG_IDS" {
   value = local.ALL_TAGS_IDS
 }
-
-output "ALL_TAG" {
-  value = local.ALL_TAGS
-}
