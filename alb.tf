@@ -9,6 +9,7 @@ resource "aws_lb_target_group" "frontend" {
     unhealthy_threshold = 2
     healthy_threshold = 2
     interval = 5
+    timeout = 4
   }
 }
 
