@@ -26,7 +26,7 @@ resource "null_resource" "ansible-apply" {
   provisioner "remote-exec" {
     connection {
       host     = element(local.ALL_INSTANCE_IPS, count.index )
-      username = jsondecode(data.aws_secretsmanager_secret_version.latest.secret_string)["SSH_USER"]
+      user = jsondecode(data.aws_secretsmanager_secret_version.latest.secret_string)["SSH_USER"]
       password = jsondecode(data.aws_secretsmanager_secret_version.latest.secret_string)["SSH_PASS"]
     }
 
