@@ -18,7 +18,7 @@ resource "aws_lb_listener" "frontend" {
   port ="80"
   protocol = "HTTP"
   default_action {
-    type = "frontend"
+    type = "forward"
     target_group_arn = aws_lb_target_group.frontend.arn
   }
 }
