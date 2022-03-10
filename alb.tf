@@ -30,13 +30,13 @@ resource "aws_lb_listener" "frontend" {
     target_group_arn = aws_lb_target_group.frontend.arn
   }
 }
-#resource "aws_lb_listener" "backend" {
-#  count = var.ALB_ATTACH_TO == "backend" ? 1 : 0
-#  load_balancer_arn = data.terraform_remote_state.alb.outputs.frontend-arn
-#  port ="8040"
-#  protocol = "HTTP"
-#  default_action {
-#    type = "frontend"
-#    target_group_arn = aws_lb_target_group.frontend.arn
-#  }
-#}
+resource "aws_lb_listener" "backend" {
+  count = var.ALB_ATTACH_TO == "backend" ? 1 : 0
+  load_balancer_arn = data.terraform_remote_state.alb.outputs.frontend-arn
+  port ="8040"
+  protocol = "HTTP"
+  default_action {
+    type = "frontend"
+    target_group_arn = aws_lb_target_group.frontend.arn
+  }
+}
